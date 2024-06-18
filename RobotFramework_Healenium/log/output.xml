@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20240527 12:12:15.113" rpa="false" schemaversion="4">
+<suite id="s1" name="Upload Download" source="C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\HealeniumTest\Upload_Download.robot">
+<test id="s1-t1" name="Download And Upload File" line="19">
+<kw name="Delete File">
+<kw name="List Directory" library="OperatingSystem">
+<var>${file_List}</var>
+<arg>${DOWNLOAD_DIR}</arg>
+<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
+<msg timestamp="20240527 12:12:15.583" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory"&gt;C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory&lt;/a&gt;'.</msg>
+<msg timestamp="20240527 12:12:15.588" level="INFO">1 item:
+pexels-alexazabache-3879065.jpg</msg>
+<msg timestamp="20240527 12:12:15.588" level="INFO">${file_List} = ['pexels-alexazabache-3879065.jpg']</msg>
+<status status="PASS" starttime="20240527 12:12:15.583" endtime="20240527 12:12:15.588"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${file_name}</var>
+<arg>${file_List}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20240527 12:12:15.589" level="INFO">${file_name} = pexels-alexazabache-3879065.jpg</msg>
+<status status="PASS" starttime="20240527 12:12:15.588" endtime="20240527 12:12:15.589"/>
+</kw>
+<kw name="File Should Not Exist" library="OperatingSystem">
+<arg>${file_name}</arg>
+<doc>Fails if the given path points to an existing file.</doc>
+<msg timestamp="20240527 12:12:15.589" level="INFO" html="true">File '&lt;a href="file://C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\pexels-alexazabache-3879065.jpg"&gt;C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\pexels-alexazabache-3879065.jpg&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20240527 12:12:15.589" endtime="20240527 12:12:15.590"/>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DOWNLOAD_DIR}\\${file_name}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20240527 12:12:15.594" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg"&gt;C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20240527 12:12:15.590" endtime="20240527 12:12:15.595"/>
+</kw>
+<status status="PASS" starttime="20240527 12:12:15.582" endtime="20240527 12:12:15.595"/>
+</kw>
+<kw name="Set Chrome Download Directory">
+<arg>${DOWNLOAD_DIR}</arg>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${download_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20240527 12:12:15.598" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory"&gt;C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20240527 12:12:15.596" endtime="20240527 12:12:15.598"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240527 12:12:15.599" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001E73AFDDE10&gt;</msg>
+<status status="PASS" starttime="20240527 12:12:15.598" endtime="20240527 12:12:15.599"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${download_dir}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240527 12:12:15.599" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\SPURGE\\PycharmProjects\\RobotFramework_Healenium\\newDirectory'}</msg>
+<status status="PASS" starttime="20240527 12:12:15.599" endtime="20240527 12:12:15.599"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20240527 12:12:15.599" endtime="20240527 12:12:15.599"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240527 12:12:15.599" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240527 12:12:15.599" endtime="20240527 12:12:18.285"/>
+</kw>
+<status status="PASS" starttime="20240527 12:12:15.595" endtime="20240527 12:12:18.286"/>
+</kw>
+<kw name="Download File">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${DOWNLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240527 12:12:18.288" level="INFO">Opening url 'https://www.pexels.com/collections/cars-m83q4nh/'</msg>
+<status status="PASS" starttime="20240527 12:12:18.288" endtime="20240527 12:12:20.298"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240527 12:12:20.298" endtime="20240527 12:12:20.435"/>
+</kw>
+<kw name="Mouse Down" library="SeleniumLibrary">
+<arg>${IMAGE}</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<msg timestamp="20240527 12:12:20.437" level="INFO">Simulating Mouse Down on element '//img[@alt='Free Suv On Brown Sand Stock Photo']'.</msg>
+<status status="PASS" starttime="20240527 12:12:20.436" endtime="20240527 12:12:21.086"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240527 12:12:23.087" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240527 12:12:21.087" endtime="20240527 12:12:23.087"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${IMAGE}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20240527 12:12:23.087" level="INFO">Simulating Mouse Over on element '//img[@alt='Free Suv On Brown Sand Stock Photo']'.</msg>
+<status status="PASS" starttime="20240527 12:12:23.087" endtime="20240527 12:12:23.397"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DOWNLOAD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240527 12:12:23.399" level="INFO">Clicking element '((//div[@class="spacing_noMargin__F5u9R spacing_mb30__2jTSp"]//div[@data-testid="column"])[1]//a[@title="Download"])[3]'.</msg>
+<status status="PASS" starttime="20240527 12:12:23.397" endtime="20240527 12:12:25.516"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240527 12:12:27.525" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240527 12:12:25.517" endtime="20240527 12:12:27.525"/>
+</kw>
+<status status="PASS" starttime="20240527 12:12:18.286" endtime="20240527 12:12:27.525"/>
+</kw>
+<kw name="Upload File">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${UPLOAD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240527 12:12:27.527" level="INFO">Opening url 'https://demoqa.com/upload-download'</msg>
+<status status="PASS" starttime="20240527 12:12:27.527" endtime="20240527 12:12:54.838"/>
+</kw>
+<kw name="Get Download FilePath">
+<var>${file}</var>
+<kw name="List Directory" library="OperatingSystem">
+<var>${file_List}</var>
+<arg>${DOWNLOAD_DIR}</arg>
+<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
+<msg timestamp="20240527 12:12:54.839" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory"&gt;C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory&lt;/a&gt;'.</msg>
+<msg timestamp="20240527 12:12:54.839" level="INFO">1 item:
+pexels-alexazabache-3879065.jpg</msg>
+<msg timestamp="20240527 12:12:54.839" level="INFO">${file_List} = ['pexels-alexazabache-3879065.jpg']</msg>
+<status status="PASS" starttime="20240527 12:12:54.839" endtime="20240527 12:12:54.839"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${file_name}</var>
+<arg>${file_List}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20240527 12:12:54.839" level="INFO">${file_name} = pexels-alexazabache-3879065.jpg</msg>
+<status status="PASS" starttime="20240527 12:12:54.839" endtime="20240527 12:12:54.847"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${file_path}</var>
+<arg>${DOWNLOAD_DIR}\\${file_name}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240527 12:12:54.849" level="INFO">${file_path} = C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg</msg>
+<status status="PASS" starttime="20240527 12:12:54.847" endtime="20240527 12:12:54.849"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${file_path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240527 12:12:54.852" level="INFO">C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg</msg>
+<status status="PASS" starttime="20240527 12:12:54.851" endtime="20240527 12:12:54.853"/>
+</kw>
+<return>
+<value>${file_path}</value>
+<status status="PASS" starttime="20240527 12:12:54.853" endtime="20240527 12:12:54.854"/>
+</return>
+<msg timestamp="20240527 12:12:54.855" level="INFO">${file} = C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg</msg>
+<status status="PASS" starttime="20240527 12:12:54.839" endtime="20240527 12:12:54.855"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240527 12:12:57.855" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240527 12:12:54.855" endtime="20240527 12:12:57.855"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UPLOAD_BUTTON}</arg>
+<arg>${file}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240527 12:12:57.859" level="INFO">Typing text 'C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\newDirectory\pexels-alexazabache-3879065.jpg' into text field '//input[@type='file']'.</msg>
+<status status="PASS" starttime="20240527 12:12:57.855" endtime="20240527 12:12:58.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>uploaded</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240527 12:12:58.045" endtime="20240527 12:12:58.046"/>
+</kw>
+<status status="PASS" starttime="20240527 12:12:27.526" endtime="20240527 12:12:58.047"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240527 12:12:58.048" endtime="20240527 12:13:00.942"/>
+</kw>
+<doc>Download a file and then upload it to another URL</doc>
+<status status="PASS" starttime="20240527 12:12:15.581" endtime="20240527 12:13:00.944"/>
+</test>
+<status status="PASS" starttime="20240527 12:12:15.118" endtime="20240527 12:13:00.947"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Upload Download">Upload Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

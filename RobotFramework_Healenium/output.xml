@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.3 on win32)" generated="2024-05-24T15:03:45.096385" rpa="false" schemaversion="5">
+<suite id="s1" name="Upload Download" source="C:\Users\SPURGE\PycharmProjects\RobotFramework_Healenium\HealeniumTest\Upload_Download.robot">
+<test id="s1-t1" name="Download And Upload File" line="17">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-24T15:03:45.573381" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AA12E4CB50&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-24T15:03:45.573381" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-24T15:03:45.574626" level="INFO">${prefs} = {'download.default_directory': 'C:\newDownload'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-24T15:03:45.574626" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-05-24T15:03:45.575344" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-24T15:03:45.576343" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2024-05-24T15:03:45.576343" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2024-05-24T15:03:45.576343" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</msg>
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2024-05-24T15:03:45.576015" elapsed="0.007331">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</kw>
+<kw name="Download File">
+<status status="NOT RUN" start="2024-05-24T15:03:45.584346" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-24T15:03:45.584346" elapsed="0.001002"/>
+</kw>
+<doc>Download a file and then upload it to another URL</doc>
+<status status="FAIL" start="2024-05-24T15:03:45.570493" elapsed="0.015062">TypeError: WebDriver.__init__() got an unexpected keyword argument 'chrome_options'</status>
+</test>
+<status status="FAIL" start="2024-05-24T15:03:45.099385" elapsed="0.487964"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Upload Download">Upload Download</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

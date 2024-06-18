@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20240311 16:52:33.340" rpa="false" schemaversion="4">
+<suite id="s1" name="Logindemo" source="C:\Users\SPURGE\PycharmProjects\RobotFramework_API\KatalonRecorder\logindemo.robot">
+<test id="s1-t1" name="robotframework-testing_selenium" line="9">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Open Browser</arg>
+<arg>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</arg>
+<arg>${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Set Selenium Speed</arg>
+<arg>${SELSPEED}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240311 16:52:33.584" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20240311 16:52:33.583" endtime="20240311 16:52:39.723"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${SELSPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20240311 16:52:39.723" endtime="20240311 16:52:39.724"/>
+</kw>
+<status status="PASS" starttime="20240311 16:52:33.583" endtime="20240311 16:52:39.725"/>
+</kw>
+<kw name="click">
+<arg>name=username</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240311 16:52:39.728" level="INFO">Clicking element 'name=username'.</msg>
+<msg timestamp="20240311 16:52:39.880" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20240311 16:52:39.880" level="FAIL">Element with locator 'name=username' not found.</msg>
+<status status="FAIL" starttime="20240311 16:52:39.727" endtime="20240311 16:52:39.883"/>
+</kw>
+<status status="FAIL" starttime="20240311 16:52:39.726" endtime="20240311 16:52:39.883"/>
+</kw>
+<kw name="type">
+<arg>name=username</arg>
+<arg>Admin</arg>
+<status status="NOT RUN" starttime="20240311 16:52:39.884" endtime="20240311 16:52:39.884"/>
+</kw>
+<kw name="click">
+<arg>name=password</arg>
+<status status="NOT RUN" starttime="20240311 16:52:39.884" endtime="20240311 16:52:39.884"/>
+</kw>
+<kw name="type">
+<arg>name=password</arg>
+<arg>admin123</arg>
+<status status="NOT RUN" starttime="20240311 16:52:39.885" endtime="20240311 16:52:39.885"/>
+</kw>
+<kw name="click">
+<arg>xpath=//button[@type='submit']</arg>
+<status status="NOT RUN" starttime="20240311 16:52:39.885" endtime="20240311 16:52:39.885"/>
+</kw>
+<kw name="open">
+<arg>https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index</arg>
+<status status="NOT RUN" starttime="20240311 16:52:39.886" endtime="20240311 16:52:39.886"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240311 16:52:39.886" endtime="20240311 16:52:42.340"/>
+</kw>
+<status status="FAIL" starttime="20240311 16:52:33.582" endtime="20240311 16:52:42.343">Element with locator 'name=username' not found.</status>
+</test>
+<status status="FAIL" starttime="20240311 16:52:33.342" endtime="20240311 16:52:42.351"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Logindemo">Logindemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
